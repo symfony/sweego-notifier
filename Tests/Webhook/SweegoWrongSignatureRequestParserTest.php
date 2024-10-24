@@ -14,12 +14,16 @@ namespace Symfony\Component\Notifier\Bridge\Sweego\Tests\Webhook;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Notifier\Bridge\Sweego\Webhook\SweegoRequestParser;
 use Symfony\Component\Webhook\Client\RequestParserInterface;
+use Symfony\Component\Webhook\Exception\RejectWebhookException;
 use Symfony\Component\Webhook\Test\AbstractRequestParserTestCase;
 
-class SweegoRequestParserTest extends AbstractRequestParserTestCase
+class SweegoWrongSignatureRequestParserTest extends AbstractRequestParserTestCase
 {
     protected function createRequestParser(): RequestParserInterface
     {
+        $this->expectException(RejectWebhookException::class);
+        $this->expectExceptionMessage('Invalid signature.');
+
         return new SweegoRequestParser();
     }
 
@@ -29,7 +33,7 @@ class SweegoRequestParserTest extends AbstractRequestParserTestCase
             'Content-Type' => 'application/json',
             'HTTP_webhook-id' => 'a5ccc627-6e43-4012-bb29-f1bfe3a3d13e',
             'HTTP_webhook-timestamp' => '1725290740',
-            'HTTP_webhook-signature' => 'k7SwzHXZqVKNvCpp6HwGS/5aDZ6NraYnKmVkBdx7MHE=',
+            'HTTP_webhook-signature' => 'wrong_signature',
         ], $payload);
     }
 }

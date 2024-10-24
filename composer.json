@@ -23,6 +23,9 @@
     "require-dev": {
         "symfony/webhook": "^6.4|^7.0"
     },
+    "conflict": {
+        "symfony/http-foundation": "<7.1"
+    },
     "autoload": {
         "psr-4": { "Symfony\\Component\\Notifier\\Bridge\\Sweego\\": "" },
         "exclude-from-classmap": [
