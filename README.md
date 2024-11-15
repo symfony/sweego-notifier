@@ -44,6 +44,16 @@ $sms->options($options);
 $texter->send($sms);
 ```
 
+Sponsor
+-------
+
+This bridge for Symfony 7.2 is [backed][1] by [Sweego][2] itself!
+
+Sweego is a European email and SMS sending platform for developers and product builders.
+Easily create, deliver, and monitor your emails and notifications.
+
+Help Symfony by [sponsoring][3] its development!
+
 Resources
 ---------
 
@@ -51,3 +61,7 @@ Resources
  * [Report issues](https://github.com/symfony/symfony/issues) and
    [send Pull Requests](https://github.com/symfony/symfony/pulls)
    in the [main Symfony repository](https://github.com/symfony/symfony)
+
+[1]: https://symfony.com/backers
+[2]: https://www.sweego.io/
+[3]: https://symfony.com/sponsor
